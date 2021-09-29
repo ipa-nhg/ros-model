@@ -28,6 +28,9 @@ class CustomOutputProvider implements IOutputConfigurationProvider {
 class CalculatorPyCodeGenerator extends AbstractGenerator {
 
 	int count_sub
+	String header_name
+	String pointer_name
+	String class_name
 	
 	def void createXtextGenerationFolder (IFileSystemAccess2 fsa, IGeneratorContext context) {
 		fsa.generateFile("lock",CustomOutputProvider::CALCULATOR_OUTPUT,'''''');
@@ -42,22 +45,59 @@ class CalculatorPyCodeGenerator extends AbstractGenerator {
 
 def compile(Node node) {
 	count_sub = node.subscriber.size
+	header_name = node.name
 '''
+#include <nodelet/nodelet.h>
+#include <pluginlib/class_list_macros.h>
+#include <string>
 
-Node name: «node.name»
+«««#include "ambs_components/ambs_calculators/comparators/float_param_comparator.h"
+#include "ambs_components/ambs_calculators/comparators/«node.name».h"
 
-«FOR sub:node.subscriber»
-Subscriber:
-  name: «sub.name»
-  type: «sub.message.fullname»
-«ENDFOR»
+namespace ambs_calculators
+{
 
+«««class CompFloatParamNodelet : public nodelet::Nodelet
+class «node.name»Nodelet : public nodelet::Nodelet
+{
+public:
+  «node.name»Nodelet() {}
+  ~«node.name»Nodelet() {}
 
-«FOR pub:node.publisher»
-Publisher:
-  name: «pub.name»
-  type: «pub.message.fullname»
-«ENDFOR»
+  virtual void onInit()
+      {
+        ros::NodeHandle nh = this->getMTPrivateNodeHandle();
+        std::string name = nh.getUnresolvedNamespace();
+        name = name.substr(name.find_last_of('/') + 1);
+
+        NODELET_INFO_STREAM("Initialising nodelet... [" << name << "]");
+«««        class_pointer_.reset(new CompFloatParam(nh, name));
+        class_pointer_.reset(new plugin_object(nh, name));
+        
+«««        class_pointer_->init(
+«««		"in_start", "in_stop", "in_reset", "in_float"
+«««		"out_done", "out_comparison");
+        class_pointer_->init(
+        «FOR pub:node.publisher»
+        "«pub.name»",
+        «ENDFOR»
+        «FOR sub:node.subscriber»
+        "«sub.name»",
+        «ENDFOR»
+		);
+      }
+
+private:
+«««    boost::shared_ptr<CompFloatParam> class_pointer_;
+    boost::shared_ptr<plugin_object> class_pointer_;
+};
+
+}  // namespace ambs_calculators
+
+«««PLUGINLIB_EXPORT_CLASS(ambs_calculators::CompFloatParamNodelet,
+«««                       nodelet::Nodelet);
+PLUGINLIB_EXPORT_CLASS(ambs_calculators::«node.name»Nodelet,
+                       nodelet::Nodelet);                   
 '''
 }
 
