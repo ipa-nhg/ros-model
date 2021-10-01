@@ -19,6 +19,7 @@ import componentInterface.RosActionClient
 import rossystem.ActionConnection
 import componentInterface.RosActionServer
 import rossystem.ComponentStack
+import ros.ParameterStructMember
 
 class LaunchFileCompiler_ROS1 {
 	@Inject extension GeneratorHelpers
@@ -85,14 +86,18 @@ class LaunchFileCompiler_ROS1 {
 			«remapping_function_actc(rosActionClient, component.hasNS, inActionToConnection(rosActionClient, system.actionConnections),component.check_ns)»
 		«ENDFOR»
 		«FOR rosParameter:component.rosparameter»
-			«IF rosParameter.parameter.type.toString.contains("ParameterStructType")»«str_output=""»
-			<rosparam>
+«IF rosParameter.parameter.type.toString.contains("ParameterStructType")»«str_output=""»
+	<rosparam>
 «rosParameter.name»:
-        «IF rosParameter.value.eContents !== null»
-		«compile_struct_param(rosParameter.value.eContents,false)»
-		«ENDIF»
-			</rosparam>
-			«ELSE»
+«IF rosParameter.value.eContents !== null»«compile_struct_param(rosParameter.value.eContents,false)»«ENDIF»
+	</rosparam>
+«ELSEIF rosParameter.parameter.type.toString.contains("ParameterListType") && rosParameter.parameter.eContents.get(0).eContents.get(0).eClass.toString.contains("ParameterStructType")»
+		<rosparam>
+	«rosParameter.name»:
+	«FOR member: rosParameter.value.eContents»- «FOR submember:member.eContents»«FOR subsubmember:submember.eContents»«(subsubmember as ParameterStructMember).name» : «(subsubmember as ParameterStructMember).value.compile_param_value»«ENDFOR»
+	«"  "»«ENDFOR»«ENDFOR»
+		</rosparam>
+«ELSE»
 		«IF rosParameter.value!==null»<param name="«rosParameter.parameter.name»" value="«compile_param_value(rosParameter.value)»" />«ENDIF»
 			«ENDIF»
 		«ENDFOR»
@@ -239,13 +244,7 @@ class LaunchFileCompiler_ROS1 {
 	}
 	//
 
-	def check_ns(ComponentInterface component){
-		if (component.hasNS){
-			return component.get_ns();
-		}else {
-			return "";
-		}
-	}
+
 
 	def String compile_struct_param(List<EObject> paramMembers,Boolean sub){
 		if (!sub){
@@ -315,16 +314,6 @@ class LaunchFileCompiler_ROS1 {
 		return ListInterfaceDef
 	}
 
-	def boolean hasNS(ComponentInterface component){
-		if(!component.nameSpace.nullOrEmpty){
-			return true;
-		}else{
-			return false
-		}
-	}
-	def String get_ns(ComponentInterface component){
-		return component.nameSpace.replaceFirst("/","");
-	}
 
  	def getParamName (EObject paramdef){
  		return (paramdef as ParameterStructMemberImpl).name;
