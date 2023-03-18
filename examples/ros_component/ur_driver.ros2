@@ -1,0 +1,50 @@
+ur_robot_driver:
+    fromGitRepo: "https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver"
+    artifacts:
+        ur_robot_driver_node:
+            node: ur_robot_driver_node
+            publishers:
+                robot_program_running:
+                    type: 'std_msgs.Bool'
+            subscribers:
+                script_command:
+                    type: "std_msgs.String"
+            serviceserver:
+                set_io:
+                    type: "ur_msgs.SetIO"
+                set_payload:
+                    type: "ur_msgs.SetPayload"
+                hand_back_control:
+                    type: "std_msgs.Trigger"
+                resend_robot_program:
+                    type: "std_msgs.Trigger"
+                connect:
+                    type: "std_msgs.Trigger"
+                zero_ftsensor:
+                    type: "std_msgs.Trigger"
+                quit:
+                    type: "std_msgs.Trigger"
+                raw_request:
+                    type: "ur_dashboard_msgs.RawRequest"
+                program_state:
+                    type: "ur_dashboard_msgs.GetProgramState"
+                get_loaded_program:
+                    type: "ur_dashboard_msgs.GetLoadedProgram"
+                program_saved:
+                 type: 'ur_dashboard_msgs.IsProgramSaved'
+                get_robot_mode:
+                  type: 'ur_dashboard_msgs.GetRobotMode'
+                program_running:
+                  type: 'ur_dashboard_msgs.IsProgramRunning'
+                get_safety_mode:
+                  type: 'ur_dashboard_msgs.GetSafetyMode'
+                set_speed_slider:
+                  type: 'ur_msgs.SetSpeedSliderFraction'
+                add_to_log:
+                  type: 'ur_dashboard_msgs.AddToLog.'
+                popup:
+                  type: 'ur_dashboard_msgs.Popup.'
+                load_installation:
+                  type: 'ur_dashboard_msgs.Load.'
+                load_program:
+                  type: 'ur_dashboard_msgs.Load.'

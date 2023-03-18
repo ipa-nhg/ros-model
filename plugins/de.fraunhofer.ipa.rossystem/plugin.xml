@@ -7,22 +7,6 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated rosystem -->
-      <package
-            uri="http://www.ipa.fraunhofer.de/rossystem"
-            class="rossystem.RossystemPackage"
-            genModel="model/rossystem.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated RosComponent -->
-      <package
-            class="componentInterface.ComponentInterfacePackage"
-            genModel="model/rossystem.genmodel"
-            uri="http://www.ipa.fraunhofer.de/RosComponent"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated rossystem -->
       <package
             uri="http://www.ipa.fraunhofer.de/rossystem"

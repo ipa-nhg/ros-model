@@ -22,30 +22,30 @@ of standard specifications.
       BSD 3-Clause License
 
 Copyright (c) 2018, Nadia Hammoudeh Garcia, Fraunhofer IPA
-All rights reserved. 
+All rights reserved.
 
-Redistribution and use in source and binary forms, with or without 
-modification, are permitted provided that the following conditions are met: 
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
 
- * Redistributions of source code must retain the above copyright notice, 
-   this list of conditions and the following disclaimer. 
- * Redistributions in binary form must reproduce the above copyright 
-   notice, this list of conditions and the following disclaimer in the 
-   documentation and/or other materials provided with the distribution. 
- * Neither the name of Fraunhofer IPA nor the names of its contributors may 
-   be used to endorse or promote products derived from this software 
-   without specific prior written permission. 
+ * Redistributions of source code must retain the above copyright notice,
+   this list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+ * Neither the name of Fraunhofer IPA nor the names of its contributors may
+   be used to endorse or promote products derived from this software
+   without specific prior written permission.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; 
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
-ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE 
-LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
-SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS 
-INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
-CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
    </license>
 
@@ -55,16 +55,14 @@ POSSIBILITY OF SUCH DAMAGE.
 
    <requires>
       <import plugin="org.eclipse.emf.ecore"/>
-      <import plugin="de.fraunhofer.ipa.componentInterface"/>
       <import plugin="de.fraunhofer.ipa.ros"/>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="de.fraunhofer.ipa.rossystem.xtext"/>
       <import plugin="de.fraunhofer.ipa.rossystem"/>
       <import plugin="org.eclipse.xtext.ide"/>
       <import plugin="org.eclipse.xtext.xbase.ide"/>
-      <import plugin="org.antlr.runtime" match="perfect"/>
+      <import plugin="org.antlr.runtime" version="4.7.2" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.edit"/>
-      <import plugin="de.fraunhofer.ipa.ros.edit"/>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.sirius"/>
@@ -73,43 +71,39 @@ POSSIBILITY OF SUCH DAMAGE.
       <import plugin="org.eclipse.ui.ide" version="3.13.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.sirius.common"/>
       <import plugin="org.eclipse.sirius.diagram.ui"/>
-      <import plugin="de.fraunhofer.ipa.componentInterface.editor"/>
       <import plugin="de.fraunhofer.ipa.ros.xtext"/>
       <import plugin="de.fraunhofer.ipa.ros.xtext.ide"/>
       <import plugin="org.eclipse.xtext.ui"/>
       <import plugin="org.eclipse.xtext.ui.shared"/>
       <import plugin="org.eclipse.xtext.ui.codetemplates.ui"/>
       <import plugin="org.eclipse.ui.editors" version="3.5.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.ide" version="3.5.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.compare"/>
       <import plugin="org.eclipse.xtext.builder"/>
+      <import plugin="org.eclipse.xtend.lib" version="2.14.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.xbase.lib" version="2.14.0" match="greaterOrEqual"/>
       <import plugin="org.apache.log4j"/>
-      <import plugin="de.fraunhofer.ipa.componentInterface.edit"/>
+      <import plugin="de.fraunhofer.ipa.ros.edit"/>
       <import plugin="org.eclipse.xtext"/>
       <import plugin="org.eclipse.xtext.xbase"/>
-      <import plugin="org.eclipse.equinox.common" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.equinox.common" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.xbase.lib" version="2.30.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.util"/>
-      <import plugin="org.eclipse.xtend.lib" version="2.14.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.navigator"/>
-      <import plugin="org.eclipse.debug.ui"/>
-      <import plugin="de.fraunhofer.ipa.componentInterface.xtext"/>
-      <import plugin="de.fraunhofer.ipa.componentInterface.xtext.ide"/>
       <import plugin="de.fraunhofer.ipa.rossystem.edit"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
-      <import plugin="org.eclipse.equinox.registry"/>
-      <import plugin="org.eclipse.emf.transaction"/>
-      <import plugin="org.eclipse.sirius.ui"/>
       <import plugin="de.fraunhofer.ipa.rossystem.xtext.ide"/>
-      <import plugin="org.eclipse.emf.common"/>
-      <import plugin="com.google.inject"/>
+      <import plugin="org.eclipse.ui.editors" version="3.14.400" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.20.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.compare" version="3.8.500" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.builder" version="2.30.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.equinox.common" version="3.17.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtend.lib" version="2.30.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.commands"/>
       <import plugin="org.eclipse.emf.common.ui"/>
+      <import plugin="org.eclipse.emf.common"/>
       <import plugin="org.eclipse.jface"/>
       <import plugin="org.eclipse.swt"/>
-      <import plugin="javax.inject"/>
-      <import plugin="org.eclipse.sirius.diagram"/>
+      <import plugin="de.fraunhofer.ipa.ros.xtext.ui"/>
       <import feature="org.eclipse.sirius.specifier"/>
    </requires>
 
@@ -134,19 +128,12 @@ POSSIBILITY OF SUCH DAMAGE.
          version="2.0.0.qualifier"
          unpack="false"/>
 
-   <plugin
-         id="de.fraunhofer.ipa.componentInterface.edit"
-         download-size="0"
-         install-size="0"
-         version="2.0.0.qualifier"
-         unpack="false"/>
-
-   <plugin
+   <!-- <plugin
          id="de.fraunhofer.ipa.ros.sirius"
          download-size="0"
          install-size="0"
          version="2.0.0.qualifier"
-         unpack="false"/>
+         unpack="false"/> -->
 
    <plugin
          id="de.fraunhofer.ipa.ros.xtext.ui"
@@ -177,28 +164,7 @@ POSSIBILITY OF SUCH DAMAGE.
          unpack="false"/>
 
    <plugin
-         id="de.fraunhofer.ipa.componentInterface.xtext.ui"
-         download-size="0"
-         install-size="0"
-         version="2.0.0.qualifier"
-         unpack="false"/>
-
-   <plugin
          id="de.fraunhofer.ipa.ros"
-         download-size="0"
-         install-size="0"
-         version="2.0.0.qualifier"
-         unpack="false"/>
-
-   <plugin
-         id="de.fraunhofer.ipa.componentInterface"
-         download-size="0"
-         install-size="0"
-         version="2.0.0.qualifier"
-         unpack="false"/>
-
-   <plugin
-         id="de.fraunhofer.ipa.componentInterface.xtext"
          download-size="0"
          install-size="0"
          version="2.0.0.qualifier"
@@ -212,21 +178,7 @@ POSSIBILITY OF SUCH DAMAGE.
          unpack="false"/>
 
    <plugin
-         id="de.fraunhofer.ipa.componentInterface.xtext.ide"
-         download-size="0"
-         install-size="0"
-         version="2.0.0.qualifier"
-         unpack="false"/>
-
-   <plugin
          id="de.fraunhofer.ipa.rossystem.xtext.ui"
-         download-size="0"
-         install-size="0"
-         version="2.0.0.qualifier"
-         unpack="false"/>
-
-   <plugin
-         id="de.fraunhofer.ipa.componentInterface.editor"
          download-size="0"
          install-size="0"
          version="2.0.0.qualifier"
@@ -267,19 +219,19 @@ POSSIBILITY OF SUCH DAMAGE.
          version="2.0.0.qualifier"
          unpack="false"/>
 
-   <plugin
+   <!-- <plugin
          id="de.fraunhofer.ipa.rossystem.model.combination"
          download-size="0"
          install-size="0"
          version="2.0.0.qualifier"
-         unpack="false"/>
+         unpack="false"/> -->
 
-   <plugin
+   <!-- <plugin
          id="de.fraunhofer.ipa.ros.observer.generator"
          download-size="0"
          install-size="0"
          version="2.0.0.qualifier"
-         unpack="false"/>
+         unpack="false"/> -->
 
    <plugin
          id="de.fraunhofer.ipa.rossystem.deployment"

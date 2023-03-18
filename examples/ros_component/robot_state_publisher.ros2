@@ -1,0 +1,7 @@
+robot_state_publisher:
+  artifacts:
+    robot_state_publisher:
+        node: robot_state_publisher
+        subscribers:
+            joint_states:
+                type: 'sensor_msgs.JointState'

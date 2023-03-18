@@ -1,0 +1,350 @@
+geometry_msgs:
+  specs:
+    - msg: Accel
+      message:
+        linear: Vector3
+        angular: Vector3
+    - msg: Vector3
+      message:
+        x: float64
+        y: float64
+        z: float64
+    - msg: AccelStamped
+      message:
+        header: Header
+        accel: Accel
+    - msg: AccelWithCovariance
+      message:
+        accel: Accel
+        covariance: float64[]
+    - msg: AccelWithCovarianceStamped
+      message:
+        header: Header
+        accel: AccelWithCovariance
+    - msg: Inertia
+      message:
+        m: float64
+        com: "geometry_msgs.Vector3"
+        ixx: float64
+        ixy: float64
+        ixz: float64
+        iyy: float64
+        iyz: float64
+        izz: float64
+    - msg: InertiaStamped
+      message:
+        header: Header
+        inertia: Inertia
+    - msg: Point
+      message:
+        x: float64
+        y: float64
+        z: float64
+    - msg: Point32
+      message:
+        x: float32
+        y: float32
+        z: float32
+    - msg: PointStamped
+      message:
+        header: Header
+        point: Point
+    - msg: Polygon
+      message:
+        points: Point32[]
+    - msg: PolygonStamped
+      message:
+        header: Header
+        polygon: Polygon
+    - msg: Pose
+      message:
+        position: Point
+        orientation: Quaternion
+    - msg: Pose2D
+      message:
+        x: float64
+        y: float64
+        theta: float64
+    - msg: PoseArray
+      message:
+        header: Header
+        poses: Pose[]
+    - msg: PoseStamped
+      message:
+        header: Header
+        pose: Pose
+    - msg: PoseWithCovariance
+      message:
+       pose: Pose
+       covariance: float64[]
+    - msg: PoseWithCovarianceStamped
+      message:
+        header: Header
+        pose: PoseWithCovariance
+    - msg: Quaternion
+      message:
+        x: float64
+        y: float64
+        z: float64
+        w: float64
+    - msg: QuaternionStamped
+      message:
+        header: Header
+        quaternion: Quaternion
+    - msg: Transform
+      message:
+        translation: Vector3
+        rotation: Quaternion
+    - msg: TransformStamped
+      message:
+        header: Header
+        child_frame_id: string
+        transform: Transform
+    - msg: Twist
+      message:
+        linear : Vector3
+        angular: Vector3
+    - msg: TwistStamped
+      message:
+        header: Header
+        twist: Twist
+    - msg: TwistWithCovariance
+      message:
+        twist: Twist
+        covariance: float64[]
+    - msg: TwistWithCovarianceStamped
+      message:
+        header: Header
+        twist: TwistWithCovariance
+    - msg: Vector3Stamped
+      message:
+        header: Header
+        vector: Vector3
+    - msg: Wrench
+      message:
+        force : Vector3
+        torque: Vector3
+    - msg: WrenchStamped
+      message:
+        header: Header
+        wrench: Wrench
+
+sensor_msgs:
+  specs:
+    - msg: BatteryState
+      message:
+        POWER_SUPPLY_STATUS_UNKNOWN: uint8
+        POWER_SUPPLY_STATUS_CHARGING: uint8
+        POWER_SUPPLY_STATUS_DISCHARGING: uint8
+        POWER_SUPPLY_STATUS_NOT_CHARGING: uint8
+        POWER_SUPPLY_STATUS_FULL: uint8
+        POWER_SUPPLY_HEALTH_UNKNOWN: uint8
+        POWER_SUPPLY_HEALTH_GOOD: uint8
+        POWER_SUPPLY_HEALTH_OVERHEAT: uint8
+        POWER_SUPPLY_HEALTH_DEAD: uint8
+        POWER_SUPPLY_HEALTH_OVERVOLTAGE: uint8
+        POWER_SUPPLY_HEALTH_UNSPEC_FAILURE: uint8
+        POWER_SUPPLY_HEALTH_COLD: uint8
+        POWER_SUPPLY_HEALTH_WATCHDOG_TIMER_EXPIRE: uint8
+        POWER_SUPPLY_HEALTH_SAFETY_TIMER_EXPIRE: uint8
+        POWER_SUPPLY_TECHNOLOGY_UNKNOWN: uint8
+        POWER_SUPPLY_TECHNOLOGY_NIMH: uint8
+        POWER_SUPPLY_TECHNOLOGY_LION: uint8
+        POWER_SUPPLY_TECHNOLOGY_LIPO: uint8
+        POWER_SUPPLY_TECHNOLOGY_LIFE: uint8
+        POWER_SUPPLY_TECHNOLOGY_NICD: uint8
+        POWER_SUPPLY_TECHNOLOGY_LIMN: uint8
+        header: Header
+        voltage: float32
+        current: float32
+        charge: float32
+        capacity: float32
+        design_capacity: float32
+        percentage: float32
+        power_supply_status: uint8
+        power_supply_health: uint8
+        power_supply_technology: uint8
+        present: bool
+        cell_voltage: float32[]
+        location: string
+        serial_number: string
+    - msg: CameraInfo
+      message:
+        header: Header
+        height: uint32
+        width: uint32
+        distortion_model: string
+        D: float64[]
+        K: float64[]
+        R: float64[]
+        P: float64[]
+        binning_x: uint32
+        binning_y: uint32
+        roi: RegionOfInterest
+    - msg: ChannelFloat32
+      message:
+        name: string
+        values: float32[]
+    - msg: CompressedImage
+      message:
+        header: Header
+        format: string
+        data: uint8[]
+    - msg: FluidPressure
+      message:
+        header: Header
+        fluid_pressure: float64
+        variance: float64
+    - msg: Illuminance
+      message:
+        header: Header
+        illuminance: float64
+        variance: float64
+    - msg: Image
+      message:
+        header: Header
+        height: uint32
+        width: uint32
+        encoding: string
+        is_bigendian: uint8
+        step: uint32
+        data: uint8[]
+    - msg: Imu
+      message:
+        header: Header
+        orientation: "geometry_msgs.Quaternion"
+        orientation_covariance: float64[]
+        angular_velocity: "geometry_msgs.Vector3"
+        angular_velocity_covariance: float64[]
+        linear_acceleration: "geometry_msgs.Vector3"
+        linear_acceleration_covariance: float64[]
+    - msg: JointState
+      message:
+        header: Header
+        name: string[]
+        position: float64[]
+        velocity: float64[]
+        effort: float64[]
+    - msg: Joy
+      message:
+        header: Header
+        axes: float32[]
+        buttons: int32[]
+    - msg: JoyFeedback
+      message:
+        TYPE_LED: uint8
+        TYPE_RUMBLE: uint8
+        TYPE_BUZZER: uint8
+        "type": uint8
+        id: uint8
+        intensity: float32
+    - msg: JoyFeedbackArray
+      message:
+        array: JoyFeedback[]
+    - msg: LaserEcho
+      message:
+        echoes: float32[]
+    - msg: LaserScan
+      message:
+        header: Header
+        angle_min: float32
+        angle_max: float32
+        angle_increment: float32
+        time_increment: float32
+        scan_time: float32
+        range_min: float32
+        range_max: float32
+        ranges: float32[]
+        intensities: float32[]
+    - msg: MagneticField
+      message:
+        header: Header
+        magnetic_field: "geometry_msgs.Vector3"
+        magnetic_field_covariance: float64[]
+    - msg: MultiDOFJointState
+      message:
+        header: Header
+        joint_names: string[]
+        transforms: "geometry_msgs.Transform"[]
+        twist: "geometry_msgs.Twist"[]
+        wrench: "geometry_msgs.Wrench"[]
+    - msg: MultiEchoLaserScan
+      message:
+        header: Header
+        angle_min: float32
+        angle_max: float32
+        angle_increment: float32
+        time_increment: float32
+        scan_time: float32
+        range_min: float32
+        range_max: float32
+        ranges: LaserEcho[]
+        intensities: LaserEcho[]
+    - msg: PointCloud
+      message:
+        header: Header
+        points: "geometry_msgs.Point32"[]
+        channels: ChannelFloat32[]
+    - msg: PointCloud2
+      message:
+        header: Header
+        height: uint32
+        width: uint32
+        fields: PointField[]
+        is_bigendian: bool
+        point_step: uint32
+        row_step: uint32
+        data: uint8[]
+        is_dense: bool
+    - msg: PointField
+      message:
+        INT8: uint8
+        UINT8: uint8
+        INT16: uint8
+        UINT16: uint8
+        INT32: uint8
+        UINT32: uint8
+        FLOAT32: uint8
+        FLOAT64: uint8
+        name: string
+        offset: uint32
+        datatype: uint8
+        count: uint32
+    - msg: Range
+      message:
+        header: Header
+        ULTRASOUND: uint8
+        INFRARED: uint8
+        radiation_type: uint8
+        field_of_view: float32
+        min_range: float32
+        max_range: float32
+        range: float32
+    - msg: RegionOfInterest
+      message:
+        x_offset: uint32
+        y_offset: uint32
+        height: uint32
+        width: uint32
+        do_rectify: bool
+    - msg: RelativeHumidity
+      message:
+        header: Header
+        relative_humidity: float64
+        variance: float64
+    - msg: Temperature
+      message:
+        header: Header
+        temperature: float64
+        variance: float64
+    - msg: TimeReference
+      message:
+        header: Header
+        time_ref: time
+        source: string
+    - srv: SetCameraInfo
+      request:
+        camera_info: "sensor_msgs.CameraInfo"
+      response:
+        success: bool
+        status_message: string

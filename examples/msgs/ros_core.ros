@@ -1,0 +1,114 @@
+std_msgs:
+  specs:
+    - msg: Bool
+      message:
+        data: bool
+    - msg: Byte
+      message:
+        data: byte
+    - msg: ByteMultiArray
+      message:
+        layout: MultiArrayLayout
+        data: byte[]
+    - msg: ColorRGBA
+      message:
+        r: float32
+        g: float32
+        b: float32
+        a: float32
+    - msg: Duration
+      message:
+        duration: bool
+    - msg: Float32
+      message:
+        data: float32
+    - msg: Float32MultiArray
+      message:
+        layout: MultiArrayLayout
+        data: float32[]
+    - msg: Float64
+      message:
+        data: float64
+    - msg: Float64MultiArray
+      message:
+        layout: MultiArrayLayout
+        data: float64[]
+    - msg: Int8
+      message:
+        data: int8
+    - msg: Int8MultiArray
+      message:
+        layout: MultiArrayLayout
+        data: int8
+    - msg: Int16
+      message:
+        data: int16
+    - msg: Int16MultiArray
+      message:
+        layout: MultiArrayLayout
+        data: int16
+    - msg: Int32
+      message:
+        data: int32
+    - msg: Int32MultiArray
+      message:
+        layout: MultiArrayLayout
+        data: int32[]
+    - msg: UInt8
+      message:
+        data: uint8
+    - msg: UInt8MultiArray
+      message:
+        layout: MultiArrayLayout
+        data: uint8
+    - msg: UInt16
+      message:
+        data: uint16
+    - msg: UInt16MultiArray
+      message:
+        layout: MultiArrayLayout
+        data: uint16
+    - msg: UInt32
+      message:
+        data: uint32
+    - msg: UInt32MultiArray
+      message:
+        layout: MultiArrayLayout
+        data: uint32[]
+    - msg: String
+      message:
+        data: string
+    - msg: Time
+      message:
+        data: time
+    - msg: Header
+      message:
+        seq: uint32
+        stamp: time
+        frame_id: string
+    - msg: MultiArrayDimension
+      message:
+        label: string
+        size: uint32
+        stride: uint32
+    - msg: MultiArrayLayout
+      message:
+        dim: MultiArrayDimension[]
+        data_offset: uint32
+
+std_srvs:
+  specs:
+    - srv: Empty
+      request:
+      response:
+    - srv: SetBool
+      request:
+        data: bool
+      response:
+        success: bool
+        "message": string
+    - srv: Trigger
+      request:
+      response:
+        success: bool
+        "message": string

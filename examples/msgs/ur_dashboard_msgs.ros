@@ -1,0 +1,102 @@
+ur_dashboard_msgs:
+  specs:
+    - msg: ProgramState
+      message:
+        STOPPED: string
+        PLAYING: string
+        PAUSED: string
+        state: string
+    - msg: SafetyMode
+      message:
+        NORMAL: uint8
+        REDUCED: uint8
+        PROTECTIVE_STOP: uint8
+        RECOVERY: uint8
+        SAFEGUARD_STOP: uint8
+        SYSTEM_EMERGENCY_STOP: uint8
+        ROBOT_EMERGENCY_STOP: uint8
+        VIOLATION: uint8
+        FAULT: uint8
+        VALIDATE_JOINT_ID0: uint8
+        UNDEFINED_SAFETY_MODE1: uint8
+        AUTOMATIC_MODE_SAFEGUARD_STOP2: uint8
+        SYSTEM_THREE_POSITION_ENABLING_STOP3: uint8
+        mode: uint8
+    - msg: RobotMode
+      message:
+        NO_CONTROLLER: int8
+        DISCONNECTED: int8
+        CONFIRM_SAFETY: int8
+        BOOTING: int8
+        POWER_OFF: int8
+        POWER_ON: int8
+        IDLE: int8
+        BACKDRIVE: int8
+        RUNNING: int8
+        UPDATING_FIRMWARE: int8
+        mode: int8
+    - srv: AddToLog
+      request:
+        "message": string
+      response:
+        answer: string
+        success: bool
+    - srv: GetLoadedProgram
+      request:
+      response:
+        answer: string
+        program_name: string
+        success: bool
+    - srv: GetProgramState
+      request:
+      response:
+        state: ProgramState
+        program_name: string
+        answer: string
+        success: bool
+    - srv: GetRobotMode
+      request:
+      response:
+        robot_mode: RobotMode
+        answer: string
+        success: bool
+    - srv: GetSafetyMode
+      request:
+      response:
+        safety_mode: SafetyMode
+        answer: string
+        success: bool
+    - srv: IsProgramRunning
+      request:
+      response:
+        answer: string
+        program_running: bool
+        success: bool
+    - srv: IsProgramSaved
+      request:
+      response:
+        answer: string
+        program_name: string
+        program_saved: bool
+        success: bool
+    - srv: Load
+      request:
+        filename: string
+      response:
+        answer: string
+        success: bool
+    - srv: Popup
+      request:
+        "message": string
+      response:
+        answer: string
+        success: bool
+    - srv: RawRequest
+      request:
+        query: string
+      response:
+        answer: string
+    - action:SetMode
+      goal:
+      result:
+      feedback:

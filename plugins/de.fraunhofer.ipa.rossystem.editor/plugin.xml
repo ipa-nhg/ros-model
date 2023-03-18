@@ -6,94 +6,6 @@
 
 <plugin>
 
-	<extension point="org.eclipse.ui.handlers">
-      <handler
-         class="rossystem.presentation.AddRosSystemHandler"
-         commandId="de.fraunhofer.ipa.ros.newRosSystem">
-      </handler>
-   </extension>
-
-   <extension point="org.eclipse.ui.commands">
-      <command
-         description="Add new Ros system"
-         id="de.fraunhofer.ipa.ros.newRosSystem"
-         name="Add new Ros System">
-      </command>
-   </extension>
-
-   <extension point="org.eclipse.ui.menus">
-      <menuContribution
-         locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
-      <toolbar
-         id="de.fraunhofer.ipa.ros.editor.toolbar2"
-         label="NewSystem">
-          <command
-            commandId="de.fraunhofer.ipa.ros.newRosSystem"
-            icon="icons/full/ros_system_icon.jpg"
-            id="NewSystem"
-            style="push">
-				<visibleWhen
-                     checkEnabled="false">
-                  <or>
-                     <with variable="activeWorkbenchWindow.activePerspective">
-                        <equals
-                              value="de.fraunhofer.ipa.ros.perspective">
-                        </equals>
-                     </with>
-                  </or>
-               </visibleWhen>
-         </command>
-      </toolbar>
-      </menuContribution>
-   </extension>
-
-	<!--Right click to re-load the ros models-->
-	<extension
-        point="org.eclipse.ui.handlers">
-        <handler
-              class="rossystem.presentation.ReloadHandler"
-              commandId="de.fraunhofer.ipa.rossystem.ReloadNodes">
-     	</handler>
-    </extension>
- 
-    <extension
-         point="org.eclipse.ui.commands">
-      <command
-            id="de.fraunhofer.ipa.rossystem.ReloadNodes"
-            name="Reload ROS nodes">
-      </command>
-   </extension>
-   <extension
-         point="org.eclipse.ui.menus">
-      <menuContribution
-             allPopups="false"
-             locationURI="popup:org.eclipse.ui.popup.any?after=additions">
-      <command
-               commandId="de.fraunhofer.ipa.rossystem.ReloadNodes"
-               >
-             <visibleWhen
-                   checkEnabled="false">
-                <and>
-                   <with
-                         variable="selection">
-                      <count
-                            value="1">
-                      </count>
-                   </with>
-                   <iterate
-                         ifEmpty="false">
-                           <test
-                                 property="org.eclipse.core.resources.extension"
-                                 value="rossystem">
-                           </test>
-                   </iterate>
-                </and>
-             </visibleWhen>
-         </command>
-      </menuContribution>
-   </extension>
-
-
    <extension point="org.eclipse.ui.newWizards">
       <!-- @generated rossystem -->
       <category
@@ -121,4 +33,5 @@
             contributorClass="system.presentation.RossystemActionBarContributor">
       </editor>
    </extension>
+
 </plugin>

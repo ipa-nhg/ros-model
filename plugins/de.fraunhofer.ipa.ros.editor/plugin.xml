@@ -7,6 +7,7 @@
 <plugin>
 
    <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated ros -->
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
@@ -20,23 +21,9 @@
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
-   
-   <extension point="org.eclipse.ui.newWizards">
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="ros.presentation.RosArtifactWizardID"
-            name="Ros Model Project"
-            class="ros.presentation.RosArtifactWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/RosModelFile.gif">
-         <description>%_UI_RosModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
 
    <extension point="org.eclipse.ui.editors">
+      <!-- @generated ros -->
       <editor
             id="ros.presentation.RosEditorID"
             name="%_UI_RosEditor_label"
@@ -48,6 +35,7 @@
    </extension>
 
    <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated ros -->
       <category
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
@@ -63,6 +51,7 @@
    </extension>
 
    <extension point="org.eclipse.ui.editors">
+      <!-- @generated ros -->
       <editor
             id="primitives.presentation.PrimitivesEditorID"
             name="%_UI_PrimitivesEditor_label"
@@ -73,165 +62,4 @@
       </editor>
    </extension>
 
-   <extension point="org.eclipse.ui.handlers">
-      <handler
-         class="ros.presentation.AddRosProjectHandler"
-         commandId="de.fraunhofer.ipa.ros.newRosProject">
-      </handler>
-   </extension>
-
-   <extension point="org.eclipse.ui.commands">
-      <command
-         description="Add new Ros project"
-         id="de.fraunhofer.ipa.ros.newRosProject"
-         name="Add new Ros Project">
-      </command>
-   </extension>
-
-   <extension point="org.eclipse.ui.menus">
-      <menuContribution
-         locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
-      <toolbar
-         id="de.fraunhofer.ipa.ros.editor.toolbar1"
-         label="NewProject">
-          <command
-            commandId="de.fraunhofer.ipa.ros.newRosProject"
-            icon="icons/full/ros_folder_icon.jpg"
-            id="NewProject"
-            style="push">
-            <visibleWhen checkEnabled="false">
-              <or>
-               <with variable="activeWorkbenchWindow.activePerspective">
-                <equals
-                  value="de.fraunhofer.ipa.ros.perspective">
-                </equals>
-               </with>
-              </or>
-            </visibleWhen>
-         </command>
-      </toolbar>
-      </menuContribution>
-   </extension>
-
-   <extension point="org.eclipse.ui.handlers">
-      <handler
-         class="ros.presentation.ImportRosModelHandler"
-         commandId="de.fraunhofer.ipa.ros.ImportRosModel">
-      </handler>
-   </extension>
-
-   <extension point="org.eclipse.ui.commands">
-      <command
-         description="Import Ros model"
-         id="de.fraunhofer.ipa.ros.ImportRosModel"
-         name="Import Ros model">
-      </command>
-   </extension>
-
-   <extension point="org.eclipse.ui.menus">
-      <menuContribution
-         locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
-      <toolbar
-         id="de.fraunhofer.ipa.ros.editor.toolbar2"
-         label="ImportRosModel">
-          <command
-            commandId="de.fraunhofer.ipa.ros.ImportRosModel"
-            icon="icons/full/import_icon.jpg"
-            id="ImportRosModel"
-            style="push">
-            <visibleWhen
-             checkEnabled="false">
-              <or>
-                 <with variable="activeWorkbenchWindow.activePerspective">
-                <equals
-                  value="de.fraunhofer.ipa.ros.perspective">
-                </equals>
-                 </with>
-              </or>
-            </visibleWhen>
-         </command>
-      </toolbar>
-      </menuContribution>
-   </extension>
-
-   <extension point="org.eclipse.ui.handlers">
-      <handler
-            class="model.spec.check.ImportCommObjectsHandler"
-            commandId="de.fraunhofer.ipa.ros.editor.newCheck">
-      </handler>
-   </extension>
-
-   <extension point="org.eclipse.ui.commands">
-      <command
-         defaultHandler="ros.presentation.ImportCommObjectsHandler"
-         description="Import Common ROS Objects"
-         id="de.fraunhofer.ipa.ros.editor.ImportCommObjects"
-         name="Import Common ROS Objects">
-         <defaultHandler
-               class="de.fraunhofer.ipa.ros.editor.Handler1">
-            <parameter
-                  name="de.fraunhofer.ipa.ros.editor.parameter1"
-                  value="de.fraunhofer.ipa.ros.editor.parameter1">
-            </parameter>
-         </defaultHandler>
-      </command>
-   </extension>
-
-   <extension point="org.eclipse.ui.menus">
-      <menuContribution
-         locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
-      <toolbar
-         id="de.fraunhofer.ipa.ros.editor.toolbar1"
-         label="Import Common ROS Objects">
-          <command
-            commandId="de.fraunhofer.ipa.ros.editor.ImportCommObjects"
-            icon="icons/full/ImportCommObjects_icon.jpg"
-            id="ImportCommObjects"
-            style="push">
-				<visibleWhen
-                     checkEnabled="false">
-                  <or>
-                     <with variable="activeWorkbenchWindow.activePerspective">
-                        <equals
-                              value="de.fraunhofer.ipa.ros.perspective">
-                        </equals>
-                     </with>
-                  </or>
-               </visibleWhen>
-         </command>
-      </toolbar>
-      </menuContribution>
-   </extension>
- 
-
-
-   <!--extension point="org.eclipse.ui.handlers">
-      <handler
-         class="ros.presentation.AddRosNodeHandler"
-         commandId="de.fraunhofer.ipa.ros.newRosNode">
-      </handler>
-   </extension>
-   <extension point="org.eclipse.ui.commands">
-      <command
-         defaultHandler="ros.presentation.AddRosNodeHandler"
-         description="Add new Ros node"
-         id="de.fraunhofer.ipa.ros.newRosNode"
-         name="Add new Ros Node">
-      </command>
-   </extension>
-   <extension point="org.eclipse.ui.menus">
-      <menuContribution
-         locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
-      <toolbar
-         id="de.fraunhofer.ipa.ros.editor.toolbar2"
-         label="NewNode">
-          <command
-            commandId="de.fraunhofer.ipa.ros.newRosNode"
-            icon="icons/full/obj16/NewRosModel_icon.gif"
-            id="NewNode"
-            style="push">
-         </command>
-      </toolbar>
-      </menuContribution>
-   </extension-->
 </plugin>

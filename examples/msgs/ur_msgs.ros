@@ -1,0 +1,75 @@
+ur_msgs:
+  specs:
+    - msg: Analog
+      message:
+        CURRENT: uint8
+        VOLTAGE: uint8
+        pin: uint8
+        domain: uint8
+        state: float32
+    - msg: Digital
+      message:
+        pin: uint8
+        state: bool
+    - msg: IOStates
+      message:
+        digital_in_states: Digital[]
+        digital_out_states: Digital[]
+        flag_states: Analog[]
+        analog_in_states: Analog[]
+        analog_out_states: Analog[]
+    - msg: MasterboardDataMsg
+      message:
+        digital_input_bits: uint32
+        digital_output_bits: uint32
+        analog_input_range0: int8
+        analog_input_range1: int8
+        analog_input0: float64
+        analog_input1: float64
+        analog_output_domain0: int8
+        analog_output_domain1: int8
+        analog_output0: float64
+        analog_output1: float32
+        masterboard_temperature: float32
+        robot_voltage_48V: float32
+        robot_current: float32
+        master_io_current: float32
+        master_safety_state: uint8
+        master_onoff_state: uint8
+    - srv: SetIO
+      request:
+        FUN_SET_DIGITAL_OUT: int8
+        FUN_SET_FLAG: int8
+        FUN_SET_ANALOG_OUT: int8
+        FUN_SET_TOOL_VOLTAGE: int8
+        STATE_OFF: int8
+        STATE_ON: int8
+        STATE_TOOL_VOLTAGE_0V: int8
+        STATE_TOOL_VOLTAGE_12V: int8
+        STATE_TOOL_VOLTAGE_24V: int8
+        fun: int8
+        pin: int8
+        state: float32
+      response:
+        success: bool
+    - srv: SetPayload
+      request:
+        FUN_SET_DIGITAL_OUT: int8
+        FUN_SET_FLAG: int8
+        FUN_SET_ANALOG_OUT: int8
+        FUN_SET_TOOL_VOLTAGE: int8
+        STATE_OFF: int8
+        STATE_ON: int8
+        STATE_TOOL_VOLTAGE_0V: int8
+        STATE_TOOL_VOLTAGE_12V: int8
+        STATE_TOOL_VOLTAGE_24V: int8
+        fun: int8
+        center_of_gravity: "geometry_msgs.Vector3"
+        payload: float32
+      response:
+        success: bool
+    - srv: SetSpeedSliderFraction
+      request:
+        speed_slider_fraction: float64
+      response:
+        success: bool
